@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import sangminP from "../sangmin.jpg";
 import yeunP from "../yeun.jpg";
 import sehoonP from "../sehoon.jpg";
@@ -16,9 +18,14 @@ const Profile = () => {
       <h1>사용자 프로필</h1>
       {profile ? (
         <div className='Profile'>
-          <h2>{profile.name}</h2>
-          <p>{profile.description}</p>
-          <p><img src={profile.pic} alt={profile.name} /></p>
+          <Card style={{ width: '18rem' }} className='card'>
+            <Card.Img variant="top" src={profile.pic} alt={profile.name}/>
+            <Card.Body>
+              <Card.Title>{profile.name}</Card.Title>
+              <Card.Text>{profile.description}</Card.Text>
+              <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+          </Card>
         </div>
       ) : (
         <p>존재하지 않는 프로필입니다.</p>
